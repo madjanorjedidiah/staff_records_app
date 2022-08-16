@@ -1,0 +1,52 @@
+{% extends "auth_now/base.html"%}
+{% load static %}
+
+
+{% block content %}
+
+                            
+<div>
+    <div class="table-responsive">
+        <table id="example1" class="display cell-border" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Title </th>
+                    <th>Staff Name</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th>Role</th>
+                    <th>Certification</th>
+                    <th>Image</th>
+                    
+                </tr>
+            </thead>
+            <tbody>                                        
+            	{% for a in data %}
+                <tr class="clickable" id={{sb_list.pk}}>
+                    <td>{{a.title}}</td>
+                    <td>{{a.name}}</td>
+                    <td>{{a.gender}}</td>
+                    <td>{{a.department}}</td>
+                    <td>{{a.role}}</td>
+                    <td>{{a.last_cert_date}}</td>
+                    <td>{{a.image}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+  
+    <!-- ENDS $dashboard_content -->
+</div>
+</div>
+
+<!-- <script src="{% static 'backend/main.js' %}"></script>
+<script src="{% static 'backend/ajax.js' %}"></script> -->
+<script>
+$(document).ready(function() {
+    $('#example1').DataTable();
+});
+</script>
+
+{% endblock %}
