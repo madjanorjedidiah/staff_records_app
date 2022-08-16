@@ -15,7 +15,7 @@ def add_user_id_n_save(request, data, unique=None):
                 temp.save()
                 return True
     except Exception as e:
-        logging.info(f"ERROR: Profile must be created first {e}")
+        #logging.info(f"ERROR: Profile must be created first {e}")
         return False
 
 
