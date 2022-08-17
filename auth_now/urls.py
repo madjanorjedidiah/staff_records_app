@@ -12,4 +12,6 @@ urlpatterns = [
 	path('admin_level/', views.admin_level, name='admin_level'),
 	path('userbio/', views.userbio, name='userbio'),
 	path('profile/', views.profile, name='profile'),
+    path('deleteuser/<int:obj_id>', views.deleteuser, name='deleteuser'),
+    path('staff_update/<int:obj_id>', views.staff_update, name='staff_update'),
 	]

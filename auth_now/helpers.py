@@ -47,3 +47,21 @@ def remove_key_from_queryset(query_dict, key):
 def querydict_to_dict(query_dict):
     val = dict((key,value) for key, value in query_dict.items())
     return val
+
+
+def list_sub_list(lst, n):
+    newl = []
+    start_index = 0
+    end_index = n
+    if len(lst)>n:
+        floor_division = len(lst)//n
+        modulo = len(lst)%n
+        for ad in range(floor_division):
+            newl.append(lst[start_index:end_index])
+            start_index = end_index
+            end_index += n
+        if modulo:
+            newl.append(lst[end_index-n:])
+    else:
+        newl.append(lst)
+    return newl

@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.urls import reverse
 from .forms import UserBioForm
-from .helpers import add_user_id_n_save, get_user, remove_key_from_queryset, check_mutable, querydict_to_dict
+from .helpers import add_user_id_n_save, get_user, remove_key_from_queryset, check_mutable, querydict_to_dict, list_sub_list
 from django.contrib.auth.decorators import login_required
 
 
@@ -76,9 +76,10 @@ def dashboard(request):
 	count_roles = [role_dict.update({a:data_table.filter(role=a).count()}) for a in distinct_roles]
 	count_female = len(data_table.filter(gender='female'))
 	count_male = len(data_table.filter(gender='male'))
-	if len(data_table) > 3:
-		
-	context = {'role':role_dict, 'data_table':data_table, 'count_female':count_female, 'count_male':count_male}
+	card_data = list_sub_list(data_table, 3)
+	card_radio = ['one', 'two']
+	context = {'role':role_dict, 'data_table':data_table, 'count_female':count_female,
+	 'count_male':count_male, 'card_data':card_data, 'card_radio':card_radio}
 	return render(request, 'auth_now/dashboard.html', context)
 
 
@@ -118,3 +119,40 @@ def userbio(request):
 				extra_tags = 'danger'
 			)
 	return render(request, 'auth_now/userbio.html')
+
+
+
+@login_required(login_url="/login/")
+def staff_update(request, obj_id):
+	if request.method == 'POST':
+		form = UserBioForm(request.POST)
+		new_data = check_mutable(request.POST, image=request.FILES.get(
+            'image', None), user_fk_id=get_user(request).id)
+		if form.is_valid() and 'image' in new_data:
+			data = UserBioInfo.objects.filter(id=obj_id).update(
+                **querydict_to_dict((remove_key_from_queryset(new_data, 'csrfmiddlewaretoken'))))
+			if data:
+				messages.add_message(
+					request, 
+					messages.INFO,
+					"You have successfully updated your record",
+					extra_tags = 'success'
+				)
+		else:
+			messages.add_message(
+				request, 
+				messages.INFO,
+				form.errors,
+				extra_tags = 'danger'
+			)
+	return render(request, 'auth_now/userbio_update.html', {'u_data':UserBioInfo.objects.get(id=obj_id)})
+
+
+
+# ///////////////////////////   delete a user  /////////////////////////
+def deleteuser(request, obj_id):
+	idd = request.GET.get('data')
+	staff = UserBioInfo.objects.get(id=obj_id)
+	user = UserIdentity.objects.get(id=staff.user_fk_id)
+	user.delete()
+	return HttpResponse('done')

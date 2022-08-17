@@ -4,6 +4,7 @@
 
 {% block content %}
 <div class="d-justify-content-center">
+	<div class="text-center topic"> USERS DATA </div>
 	<div class="card bg-pattern col-md-12 d-block p-2">
 		<div class="table-responsive">
 	        <table id="example1" class="display cell-border" style="width:100%">
@@ -104,139 +105,26 @@
 		    </div>
 		</div>
 	</div>
-	<!-- <div class="d-inline-block col-md-8 float-right">
-			<div class="d-justify-content-center card bg-pattern d-block col-md-12">
-				<div class="container_card">
-				    <input type="radio" name="dot" id="one">
-				    <input type="radio" name="dot" id="two">
-				    <div class="main-card">
-				      <div class="cards">
-				        <div class="card">
-				         <div class="content">
-				           <div class="img">
-				           </div>
-				           <div class="details">
-				             <div class="name">Andrew Neil</div>
-				             <div class="job">Web Designer</div>
-				           </div>
-				           <div class="media-icons">
-				             <a href="#"><i class="fab fa-facebook-f"></i></a>
-				             <a href="#"><i class="fab fa-twitter"></i></a>
-				             <a href="#"><i class="fab fa-instagram"></i></a>
-				             <a href="#"><i class="fab fa-youtube"></i></a>
-				           </div>
-				         </div>
-				        </div>
-				        <div class="card">
-				         <div class="content">
-				           <div class="img">
-				           </div>
-				           <div class="details">
-				             <div class="name">Jasmine Carter</div>
-				             <div class="job">UI Designer</div>
-				           </div>
-				           <div class="media-icons">
-				             <a href="#"><i class="fab fa-facebook-f"></i></a>
-				             <a href="#"><i class="fab fa-twitter"></i></a>
-				             <a href="#"><i class="fab fa-instagram"></i></a>
-				             <a href="#"><i class="fab fa-youtube"></i></a>
-				           </div>
-				         </div>
-				        </div>
-				        <div class="card">
-				         <div class="content">
-				           <div class="img">
-				           </div>
-				           <div class="details">
-				             <div class="name">Justin Chung</div>
-				             <div class="job">Web Devloper</div>
-				           </div>
-				           <div class="media-icons">
-				             <a href="#"><i class="fab fa-facebook-f"></i></a>
-				             <a href="#"><i class="fab fa-twitter"></i></a>
-				             <a href="#"><i class="fab fa-instagram"></i></a>
-				             <a href="#"><i class="fab fa-youtube"></i></a>
-				           </div>
-				         </div>
-				        </div>
-				      </div>
-				      <div class="cards">
-				        <div class="card">
-				         <div class="content">
-				           <div class="img">
-				           </div>
-				           <div class="details">
-				             <div class="name">Appolo Reef</div>
-				             <div class="job">Web Designer</div>
-				           </div>
-				           <div class="media-icons">
-				             <a href="#"><i class="fab fa-facebook-f"></i></a>
-				             <a href="#"><i class="fab fa-twitter"></i></a>
-				             <a href="#"><i class="fab fa-instagram"></i></a>
-				             <a href="#"><i class="fab fa-youtube"></i></a>
-				           </div>
-				         </div>
-				        </div>
-				        <div class="card">
-				         <div class="content">
-				           <div class="img">
-				           </div>
-				           <div class="details">
-				             <div class="name">Adrina Calvo</div>
-				             <div class="job">UI Designer</div>
-				           </div>
-				           <div class="media-icons">
-				             <a href="#"><i class="fab fa-facebook-f"></i></a>
-				             <a href="#"><i class="fab fa-twitter"></i></a>
-				             <a href="#"><i class="fab fa-instagram"></i></a>
-				             <a href="#"><i class="fab fa-youtube"></i></a>
-				           </div>
-				         </div>
-				        </div>
-				        <div class="card">
-				         <div class="content">
-				           <div class="img">
-				           </div>
-				           <div class="details">
-				             <div class="name">Nicole Lewis</div>
-				             <div class="job">Web Devloper</div>
-				           </div>
-				           <div class="media-icons">
-				             <a href="#"><i class="fab fa-facebook-f"></i></a>
-				             <a href="#"><i class="fab fa-twitter"></i></a>
-				             <a href="#"><i class="fab fa-instagram"></i></a>
-				             <a href="#"><i class="fab fa-youtube"></i></a>
-				           </div>
-				         </div>
-				        </div>
-				      </div>
-				    </div>
-				    <div class="button">
-				      <label for="one" class=" active one"></label>
-				      <label for="two" class="two"></label>
-				    </div>
-				  </div>
-			</div>
-		</div>
-	</div> -->
 
 	<div class="d-inline-block col-md-8 float-right">
+		<div class="col-md-12 text-center topic"> Staff Members </div>
 		<div class="d-justify-content-center card bg-pattern d-block col-md-12">
 			<div class="container_card">
-				{% for aa in data_table %}
-			    <input type="radio" name="dot" id="{{aa.id}}">
+				{% for aa in card_radio %}
+			    <input type="radio" name="dot" id="{{aa}}">
 			    {% endfor %}
 			    <div class="main-card">
+			    	{% for aa in card_data %}
 			      <div class="cards">
-			      	{% for aa in data_table %}
+			      	{% for aaa in aa %}
 			        <div class="card">
 			         <div class="content">
 			           <div class="img">
-			            	<img src="/media/{{aa.image}}" alt="">
+			            	<img src="/media/{{aaa.image}}" alt="">
 			           </div>
 			           <div class="details">
-			             <div class="name">{{aa.name}}</div>
-			             <div class="job">{{aa.role}}</div>
+			             <div class="name">{{aaa.name}}</div>
+			             <div class="job">{{aaa.role}}</div>
 			           </div>
 			           <div class="media-icons">
 			             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -246,12 +134,13 @@
 			           </div>
 			         </div>
 			        </div>
-			        {% endfor %}
+			        {% endfor %} 
 			      </div>
+			      {% endfor %} 
 			    </div>
 			    <div class="button">
-			    	{% for aa in data_table %}
-			      <label for="{{aa.id}}" class="item  {{aa.id}}"></label>
+			    	{% for aa in card_radio %}
+			      <label for="{{aa}}" class="item {{aa}}"></label>
 			      {% endfor %}
 			    </div>
 			  </div>
@@ -263,6 +152,8 @@
 </div>
 
 <script type="text/javascript">
+	$('.item').first().addClass('active')
+
 	$(document).ready(function() {
 	    $('#example1').DataTable({
 	    	'pageLength' : 5,
