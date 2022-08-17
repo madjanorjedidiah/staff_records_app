@@ -6,7 +6,9 @@ Website: https://coderthemes.com/
 Contact: support@coderthemes.com
 File: Main Css File
 */
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700,900");
+
+
+/*@import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700,900");*/
 
 @font-face {
   font-family: "Cerebri Sans,sans-serif";

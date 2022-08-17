@@ -5,7 +5,7 @@
 {% block content %}
 
                             
-<div>
+<div class="d-flex justify-content-center" style="margin: 0">
     <div class="table-responsive">
         <table id="example1" class="display cell-border" style="width:100%">
             <thead>
@@ -13,6 +13,8 @@
                     <th>Title </th>
                     <th>Staff Name</th>
                     <th>Gender</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
                     <th>Department</th>
                     <th>Role</th>
                     <th>Certification</th>
@@ -26,6 +28,8 @@
                     <td>{{a.title}}</td>
                     <td>{{a.name}}</td>
                     <td>{{a.gender}}</td>
+                    <td>{{a.email}}</td>
+                    <td>{{a.phone_number}}</td>
                     <td>{{a.department}}</td>
                     <td>{{a.role}}</td>
                     <td>{{a.last_cert_date}}</td>
@@ -45,7 +49,9 @@
 <script src="{% static 'backend/ajax.js' %}"></script> -->
 <script>
 $(document).ready(function() {
-    $('#example1').DataTable();
+    $('#example1').DataTable({
+        // pageLength : 5,
+    });
 });
 </script>
 

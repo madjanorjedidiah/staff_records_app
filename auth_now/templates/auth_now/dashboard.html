@@ -2,4 +2,290 @@
 {% load static%}
 
 
+{% block content %}
+<div class="d-justify-content-center">
+	<div class="card bg-pattern col-md-12 d-block p-2">
+		<div class="table-responsive">
+	        <table id="example1" class="display cell-border" style="width:100%">
+	            <thead>
+	                <tr>
+	                    <th>Title </th>
+	                    <th>Staff Name</th>
+	                    <th>Gender</th>
+	                    <th>Email</th>
+	                    <th>Phone Number</th>
+	                    <th>Department</th>
+	                    <th>Role</th>
+	                    <th>Certification</th>
+	                    <th>Image</th>
+	                    
+	                </tr>
+	            </thead>
+	            <tbody>                                        
+	            	{% for a in data_table %}
+	                <tr class="clickable" id={{sb_list.pk}}>
+	                    <td>{{a.title}}</td>
+	                    <td>{{a.name}}</td>
+	                    <td>{{a.gender}}</td>
+	                    <td>{{a.email}}</td>
+	                    <td>{{a.phone_number}}</td>
+	                    <td>{{a.department}}</td>
+	                    <td>{{a.role}}</td>
+	                    <td>{{a.last_cert_date}}</td>
+	                    <td>{{a.image}}</td>
+	                </tr>
+	                {% endfor %}
+	            </tbody>
+	        </table>
+	    </div>
+	</div>
+	<br>
 
+	
+	<div class="d-inline-block col-md-4">
+		<div class="col-md-12 text-center topic"> Summary of Roles </div>
+		<div class="card bg-pattern col-md-12 d-block">
+			<div>
+				<!-- <div class="col-md-6 d-inline-block">Project Manager</div>
+				<div class="col-md-5 d-inline-block">{{1}}</div>
+				<div class="col-md-6 d-inline-block">Technical Manager</div>
+				<div class="col-md-5 d-inline-block">{{1}}</div>
+				<div class="col-md-6 d-inline-block">Software Developer</div>
+				<div class="col-md-5 d-inline-block">{{1}}</div>
+				<div class="col-md-6 d-inline-block">Data Engineer</div>
+				<div class="col-md-5 d-inline-block">{{1}}</div>
+				<div class="col-md-6 d-inline-block">Sales Manager</div>
+				<div class="col-md-5 d-inline-block">{{1}}</div>
+				<div class="col-md-6 d-inline-block">Product Manager</div>
+				<div class="col-md-5 d-inline-block">{{1}}</div> -->
+			</div>
+			<div class="table-responsive">
+		        <table id="example2" class="display cell" style="width:97%">
+		            <thead>
+		                <tr>
+		                	<th>Roles </th>
+		                	<th>Count </th>
+		                </tr>
+		            </thead>
+		            <tbody>  
+		            {% for key, value in role.items %}                                       
+		            	<tr>
+		                	<td>{{key}}</td>
+		                	<td> {{value}} </td>
+		                </tr>
+		                
+		            {% endfor %}
+		            </tbody>
+		        </table>
+		    </div>
+		</div>
+		<br>
+		<div class="col-md-12 text-center topic"> Summary Gender </div>
+		<div class="card bg-pattern d-block col-md-12">
+			<div class="table-responsive">
+		        <table id="example3" class="display cell" style="width:97%">
+		            <thead>
+		                <tr>
+		                	<th>Gender </th>
+		                	<th>Count </th>
+		                </tr>
+		            </thead>
+		            <tbody>                                        
+		            	<tr>
+		                	<td>Male </td>
+		                	<td> {{count_male}} </td>
+		                </tr>
+		                <tr>
+		                    <td> Female </td>
+		                    <td> {{count_male}} </td>
+		                </tr>
+		            </tbody>
+		        </table>
+		    </div>
+		</div>
+	</div>
+	<!-- <div class="d-inline-block col-md-8 float-right">
+			<div class="d-justify-content-center card bg-pattern d-block col-md-12">
+				<div class="container_card">
+				    <input type="radio" name="dot" id="one">
+				    <input type="radio" name="dot" id="two">
+				    <div class="main-card">
+				      <div class="cards">
+				        <div class="card">
+				         <div class="content">
+				           <div class="img">
+				           </div>
+				           <div class="details">
+				             <div class="name">Andrew Neil</div>
+				             <div class="job">Web Designer</div>
+				           </div>
+				           <div class="media-icons">
+				             <a href="#"><i class="fab fa-facebook-f"></i></a>
+				             <a href="#"><i class="fab fa-twitter"></i></a>
+				             <a href="#"><i class="fab fa-instagram"></i></a>
+				             <a href="#"><i class="fab fa-youtube"></i></a>
+				           </div>
+				         </div>
+				        </div>
+				        <div class="card">
+				         <div class="content">
+				           <div class="img">
+				           </div>
+				           <div class="details">
+				             <div class="name">Jasmine Carter</div>
+				             <div class="job">UI Designer</div>
+				           </div>
+				           <div class="media-icons">
+				             <a href="#"><i class="fab fa-facebook-f"></i></a>
+				             <a href="#"><i class="fab fa-twitter"></i></a>
+				             <a href="#"><i class="fab fa-instagram"></i></a>
+				             <a href="#"><i class="fab fa-youtube"></i></a>
+				           </div>
+				         </div>
+				        </div>
+				        <div class="card">
+				         <div class="content">
+				           <div class="img">
+				           </div>
+				           <div class="details">
+				             <div class="name">Justin Chung</div>
+				             <div class="job">Web Devloper</div>
+				           </div>
+				           <div class="media-icons">
+				             <a href="#"><i class="fab fa-facebook-f"></i></a>
+				             <a href="#"><i class="fab fa-twitter"></i></a>
+				             <a href="#"><i class="fab fa-instagram"></i></a>
+				             <a href="#"><i class="fab fa-youtube"></i></a>
+				           </div>
+				         </div>
+				        </div>
+				      </div>
+				      <div class="cards">
+				        <div class="card">
+				         <div class="content">
+				           <div class="img">
+				           </div>
+				           <div class="details">
+				             <div class="name">Appolo Reef</div>
+				             <div class="job">Web Designer</div>
+				           </div>
+				           <div class="media-icons">
+				             <a href="#"><i class="fab fa-facebook-f"></i></a>
+				             <a href="#"><i class="fab fa-twitter"></i></a>
+				             <a href="#"><i class="fab fa-instagram"></i></a>
+				             <a href="#"><i class="fab fa-youtube"></i></a>
+				           </div>
+				         </div>
+				        </div>
+				        <div class="card">
+				         <div class="content">
+				           <div class="img">
+				           </div>
+				           <div class="details">
+				             <div class="name">Adrina Calvo</div>
+				             <div class="job">UI Designer</div>
+				           </div>
+				           <div class="media-icons">
+				             <a href="#"><i class="fab fa-facebook-f"></i></a>
+				             <a href="#"><i class="fab fa-twitter"></i></a>
+				             <a href="#"><i class="fab fa-instagram"></i></a>
+				             <a href="#"><i class="fab fa-youtube"></i></a>
+				           </div>
+				         </div>
+				        </div>
+				        <div class="card">
+				         <div class="content">
+				           <div class="img">
+				           </div>
+				           <div class="details">
+				             <div class="name">Nicole Lewis</div>
+				             <div class="job">Web Devloper</div>
+				           </div>
+				           <div class="media-icons">
+				             <a href="#"><i class="fab fa-facebook-f"></i></a>
+				             <a href="#"><i class="fab fa-twitter"></i></a>
+				             <a href="#"><i class="fab fa-instagram"></i></a>
+				             <a href="#"><i class="fab fa-youtube"></i></a>
+				           </div>
+				         </div>
+				        </div>
+				      </div>
+				    </div>
+				    <div class="button">
+				      <label for="one" class=" active one"></label>
+				      <label for="two" class="two"></label>
+				    </div>
+				  </div>
+			</div>
+		</div>
+	</div> -->
+
+	<div class="d-inline-block col-md-8 float-right">
+		<div class="d-justify-content-center card bg-pattern d-block col-md-12">
+			<div class="container_card">
+				{% for aa in data_table %}
+			    <input type="radio" name="dot" id="{{aa.id}}">
+			    {% endfor %}
+			    <div class="main-card">
+			      <div class="cards">
+			      	{% for aa in data_table %}
+			        <div class="card">
+			         <div class="content">
+			           <div class="img">
+			            	<img src="/media/{{aa.image}}" alt="">
+			           </div>
+			           <div class="details">
+			             <div class="name">{{aa.name}}</div>
+			             <div class="job">{{aa.role}}</div>
+			           </div>
+			           <div class="media-icons">
+			             <a href="#"><i class="fab fa-facebook-f"></i></a>
+			             <a href="#"><i class="fab fa-twitter"></i></a>
+			             <a href="#"><i class="fab fa-instagram"></i></a>
+			             <a href="#"><i class="fab fa-youtube"></i></a>
+			           </div>
+			         </div>
+			        </div>
+			        {% endfor %}
+			      </div>
+			    </div>
+			    <div class="button">
+			    	{% for aa in data_table %}
+			      <label for="{{aa.id}}" class="item  {{aa.id}}"></label>
+			      {% endfor %}
+			    </div>
+			  </div>
+		</div>
+	</div>
+</div>
+			
+	
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#example1').DataTable({
+	    	'pageLength' : 5,
+	    	'lengthChange': false
+	    });
+
+	    $('#example2').DataTable({
+	    	'lengthChange': false,
+	    	'searching': false,
+	    	'paging' : false,
+	    	"bInfo": false,
+	    	// 'scrollX': true,  
+	    });
+
+	    $('#example3').DataTable({
+	    	'lengthChange': false,
+	    	'searching': false,
+	    	'paging' : false,
+	    	"bInfo": false,
+	    	// 'scrollX': true,  
+	    });
+	});
+		    
+
+</script>
+{% endblock %}

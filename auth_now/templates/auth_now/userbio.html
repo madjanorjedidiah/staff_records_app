@@ -49,13 +49,18 @@
                             </div>
                             {% endif %}
 
-                            <form action="" method="post">
+                            <form action="" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
 
                                 <div class="form-group mb-3">
                                     <!-- <label for="username">Username</label> -->
-                                    <input type="text" class="form-control" id="title" name="title" required=""
-                                        placeholder="Enter your title">
+                                    <select class="form-control" id="title" name="title">
+                                        <option value="">Title</option>
+                                        <option value="Mr.">Mr.</option>
+                                        <option value="Mrs">Mrs</option>
+                                        <option value="Dr.">Dr.</option>
+                                        <option value="Prof">Prof</option>
+                                    </select>
                                 </div>
                                 <div class="form-group mb-3">
                                     <!-- <label for="username">Username</label> -->
@@ -64,8 +69,11 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <!-- <label for="username">Username</label> -->
-                                    <input type="text" class="form-control" id="gender" name="gender" required=""
-                                        placeholder="Enter your gender">
+                                    <select class="form-control" id="gender" name="gender">
+                                        <option value="">Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
                                 </div>
                                 <div class="form-group mb-3">
                                     <!-- <label for="username">Username</label> -->
@@ -73,15 +81,32 @@
                                         placeholder="Enter your department">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <!-- <label for="username">Username</label> -->
-                                    <input type="text" class="form-control" id="role" name="role" required=""
-                                        placeholder="Enter your role">
+                                    <select class="form-control" id="role" name="role">
+                                        <option value="">Role</option>
+                                        <option value="Project Manager">Project Manager</option>
+                                        <option value="Technical Manager">Technical Manager</option>
+                                        <option value="Software Developer">Software Developer</option>
+                                        <option value="Data Engineer">Data Engineer</option>
+                                        <option value="Sales Manager">Sales Manager</option>
+                                        <option value="Product Manager">Product Manager</option>
+                                    </select>
                                 </div>
                                 <div class="form-group mb-3">
                                     <!-- <label for="username">Username</label> -->
-                                    <input type="text" class="form-control" id="last_cert_date" name="last_cert_date" required=""
+                                    <input type="text" class="form-control" id="email" name="email" required=""
+                                        placeholder="Enter your email">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <!-- <label for="username">Username</label> -->
+                                    <input type="text" class="form-control" id="phone_number" name="phone_number" required=""
+                                        placeholder="Enter your phone number">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <!-- <label for="username">Username</label> -->
+                                    <input type="date" class="form-control" id="last_cert_date" name="last_cert_date" required=""
                                         placeholder="Enter your last certification date">
                                 </div>
+
                                 <div class="form-group mb-3">
                                     <!-- <label for="username">Username</label> -->
                                     <input type="file" class="form-control" id="image" name="image" required=""
