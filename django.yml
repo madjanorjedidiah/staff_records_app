@@ -1,9 +1,11 @@
 name: staff-app-project
 on: 
   push:
-    branches: [ "main" ]
+    branches: 
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches: 
+      - main
 jobs:
   builds:
     project-tests:
