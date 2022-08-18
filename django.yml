@@ -1,5 +1,6 @@
 name: test-project
 on: [push]
+  branches: [ "master" ]
 jobs:
   run-tests:
     run-on: ubuntu-latest
