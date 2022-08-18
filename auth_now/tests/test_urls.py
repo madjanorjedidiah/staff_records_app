@@ -24,5 +24,5 @@ class UrlsUsersTest(TestCase):
 
 	def test_logout_url(self):
 		resolver = resolve(reverse('logout'))
-		self.assertEqual(resolver.func, logout)
+		self.assertEqual(resolver.func, logout_view)
 		
