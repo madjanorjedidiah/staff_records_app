@@ -16,6 +16,7 @@ It comes with the following:
 - Create a virtual environment for the project.
 - Move into the root folder and open your terminal.
 - Activate the virtual environment you created.
+- Run pip install -r requirements.txt
 - Run python manage.py makemigrations
 - Run python manage.py migrate.
 - Run python manage.py runserver
