@@ -28,15 +28,15 @@ TODO:
 - Go to the settings.py and change the db to your specified db.
 
 
-# Dashboard
+## Dashboard
 ![Screenshot](dashboard.png)
 
 
 
-# Home
+## Home
 ![Screenshot](home.png)
 
 
 
-# Admin
+## Admin
 ![Screenshot](admin.png)
