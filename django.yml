@@ -1,18 +1,17 @@
 name: staff-app-project
 on: 
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 jobs:
-  builds:
-    project-tests:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-python@v3
-          with:
-            python-version: 3.8
-        - run: pip install -r requirements.txt
-        - run: python manage.py migrate
-        - run: python manage.py test
+  project-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+      - run: pip install -r requirements.txt
+      - run: python manage.py migrate
+      - run: python manage.py test
