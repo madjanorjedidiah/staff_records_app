@@ -109,7 +109,7 @@ LOGGING = {
 #     }
 
 
-try:
+if os.environ.get('ENV') == 'DEV':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -120,7 +120,7 @@ try:
             'PASSWORD': os.environ.get('DB_PASSWORD'),
         }
     }
-except Exception:
+else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
